@@ -1,0 +1,13 @@
+postprocessor:
+  name: knn
+  APS_mode: False
+  postprocessor_args:
+    K1: 10
+    K2: 5
+    ALPHA: 0.5
+    queue_size: 512
+  postprocessor_sweep:
+    K1: 10
+    K2: 5
+    ALPHA: 0.5
+    queue_size: 512

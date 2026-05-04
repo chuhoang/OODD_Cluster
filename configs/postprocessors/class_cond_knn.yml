@@ -1,0 +1,19 @@
+postprocessor:
+  name: class_cond_knn
+  APS_mode: False
+  postprocessor_args:
+    K1: 10
+    K2: 5
+    ALPHA: 0.5
+    queue_size: 512
+    k_min: 1
+    k_max: 4
+    intra_weight: 1.0
+  postprocessor_sweep:
+    K1: 10
+    K2: 5
+    ALPHA: 0.5
+    queue_size: 512
+    k_min: 1
+    k_max: 4
+    intra_weight: 1.0

@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+data/benchmark_imglist/
+data/
+openood/__pycache__/
+train_idx.npy
+*.npy
+*.pth
+results/
+checkpoint/
+cache/

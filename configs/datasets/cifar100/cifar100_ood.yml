@@ -1,0 +1,67 @@
+ood_dataset:
+  name: cifar100_ood
+  num_classes: 100
+  
+  num_workers: '@{num_workers}'
+  num_gpus: '@{num_gpus}'
+  num_machines: '@{num_machines}'
+
+  dataset_class: ImglistDataset
+  # batch_size: 64
+  batch_size: 128
+  # batch_size: 512
+  shuffle: False
+
+  # split_names: [val, nearood, farood, t_out, d_out]
+  split_names: [val, farood, nearood]
+  val:
+    data_dir: ./data/images_classic/
+    imglist_pth: ./data/benchmark_imglist/cifar100/val_tin.txt
+  nearood:
+    datasets: [tin, cifar10]
+    tin:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/cifar10/test_tin.txt
+    cifar10:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/cifar100/test_cifar10.txt
+  farood:
+    datasets: [mnist, svhn, texture, places365]
+    mnist:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/cifar100/test_mnist.txt
+    svhn:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/cifar100/test_svhn.txt
+    texture:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/cifar100/test_texture.txt
+    places365:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/cifar100/test_places365.txt
+  # t_out:
+  #   datasets: [tin, cifar10,mnist, svhn, texture, places365]
+  #   tin:
+  #     data_dir: ./data/images_classic/
+  #     imglist_pth: ./data/benchmark_imglist/my_cifar100/val_tin.txt
+  #   cifar10:
+  #     data_dir: ./data/images_classic/
+  #     imglist_pth: ./data/benchmark_imglist/my_cifar100/val_cifar10.txt
+  #   mnist:
+  #     data_dir: ./data/images_classic/
+  #     imglist_pth: ./data/benchmark_imglist/my_cifar100/val_mnist.txt
+  #   svhn:
+  #     data_dir: ./data/images_classic/
+  #     imglist_pth: ./data/benchmark_imglist/my_cifar100/val_svhn.txt
+  #   texture:
+  #     data_dir: ./data/images_classic/
+  #     imglist_pth: ./data/benchmark_imglist/my_cifar100/val_texture.txt
+  #   places365:
+  #     data_dir: ./data/images_classic/
+  #     imglist_pth: ./data/benchmark_imglist/my_cifar100/val_places365.txt
+  # d_out:
+  #   datasets: [oe]
+  #   oe:
+  #     data_dir: ./data/images_classic/
+  #     imglist_pth: ./data/benchmark_imglist/cifar100/train_tin597.txt
+      
