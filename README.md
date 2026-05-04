@@ -1,6 +1,6 @@
 # OODD: Test-time Out-of-Distribution Detection with Dynamic Dictionary
 Yifeng Yang, Lin Zhu, Zewen Sun, Hengyu Liu, Qinying Gu, Nanyang Ye 
-
+xxxxxxxxxxxxxxxxxxxx
 [CVPR2025] The source code of "[OODD: Test-time Out-of-Distribution Detection with Dynamic Dictionary](https://arxiv.org/pdf/2503.10468)".
 <p align="center">
   <img src="img/ov.png" width=80%/>
