@@ -338,16 +338,9 @@ class ClassConditionalKNNPostprocessor(BasePostprocessor):
                         all_feats_c, c_data, K=k_eff)
                     intra_scores[c_indices] = batch_intra
 
-            # --- 1b. Compute global ID similarity (K1-th nearest in activation_log) ---
-            global_scores = batched_matrix_multiply(
-                self.activation_log, batch_data, self.K1)
-
-            # hybrid = intra + global (both inverted: HIGH=OOD, so higher = more OOD-like)
-            hybrid_scores = intra_scores + global_scores
-
-            # --- 2. Update OOD queue using hybrid score ---
+            # --- 2. Update OOD queue ---
             for j in range(batch_data.shape[0]):
-                queue.put(ScoreData(-hybrid_scores[j], batch_data[j]))
+                queue.put(ScoreData(-intra_scores[j], batch_data[j]))
                 if queue.qsize() > self.queue_size:
                     queue.get()
 
@@ -359,8 +352,8 @@ class ClassConditionalKNNPostprocessor(BasePostprocessor):
 
             ood_batch_score = batched_matrix_multiply(new_food, batch_data, self.K2)
 
-            # --- 4. Final score = -(intra + global) - ood (negate since inverted) ---
-            batch_score = -hybrid_scores - ood_batch_score
+            # --- 4. Final score ---
+            batch_score = -intra_scores - ood_batch_score
             scores_list.append(batch_score)
 
         scores_all = np.concatenate(scores_list, axis=0)
