@@ -69,7 +69,7 @@ python main.py \
     --network.checkpoint /path/to/wood_checkpoint.ckpt \
     --postprocessor.postprocessor_args.K1 10 \
     --postprocessor.postprocessor_args.K2 5 \
-    --postprocessor.postprocessor_args.weak_remove_ratio 0.15 \
+    --postprocessor.postprocessor_args.weak_remove_ratio 0.7 \
     --postprocessor.postprocessor_args.queue_size 512 \
     --merge_option merge
 ```
@@ -83,7 +83,7 @@ python main.py \
 | `--gpu` | `0` | GPU device (`-1` for CPU) |
 | `--K1` | `10` | K for intra-class ID scoring |
 | `--K2` | `5` | K for OOD scoring |
-| `--weak_remove_ratio` | `0.15` | Fraction of weak features removed per cluster |
+| `--weak_remove_ratio` | `0.7` | Fraction of weak features removed per cluster |
 | `--queue_size` | `512` | OOD memory bank queue size |
 | `--k_min` | `1` | Minimum clusters for X-Means |
 | `--k_max` | `4` | Maximum clusters for X-Means |
