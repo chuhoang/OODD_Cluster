@@ -18,6 +18,7 @@ from .gram_postprocessor import GRAMPostprocessor
 from .kl_matching_postprocessor import KLMatchingPostprocessor
 from .knn_postprocessor import KNNPostprocessor
 from .class_cond_knn_postprocessor import ClassConditionalKNNPostprocessor
+from .weakness_removal_knn_postprocessor import WeaknessRemovalKNNPostprocessor
 from .maxlogit_postprocessor import MaxLogitPostprocessor
 from .mcd_postprocessor import MCDPostprocessor
 from .mds_postprocessor import MDSPostprocessor
@@ -77,6 +78,7 @@ def get_postprocessor(config: Config):
         'opengan': OpenGanPostprocessor,
         'knn': KNNPostprocessor,
         'class_cond_knn': ClassConditionalKNNPostprocessor,
+        'weakness_removal_knn': WeaknessRemovalKNNPostprocessor,
         'dice': DICEPostprocessor,
         'ssd': SSDPostprocessor,
         'she': SHEPostprocessor,

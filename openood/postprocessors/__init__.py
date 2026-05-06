@@ -16,6 +16,7 @@ from .gram_postprocessor import GRAMPostprocessor
 from .kl_matching_postprocessor import KLMatchingPostprocessor
 from .knn_postprocessor import KNNPostprocessor
 from .class_cond_knn_postprocessor import ClassConditionalKNNPostprocessor
+from .weakness_removal_knn_postprocessor import WeaknessRemovalKNNPostprocessor
 from .maxlogit_postprocessor import MaxLogitPostprocessor
 from .mcd_postprocessor import MCDPostprocessor
 from .mcm_postprocessor import MCMPostprocessor

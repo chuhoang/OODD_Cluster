@@ -1,0 +1,17 @@
+postprocessor:
+  name: weakness_removal_knn
+  APS_mode: False
+  postprocessor_args:
+    K1: 10
+    K2: 5
+    weak_remove_ratio: 0.15
+    queue_size: 512
+    k_min: 1
+    k_max: 4
+  postprocessor_sweep:
+    K1: 10
+    K2: 5
+    weak_remove_ratio: 0.15
+    queue_size: 512
+    k_min: 1
+    k_max: 4

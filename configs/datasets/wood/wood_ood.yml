@@ -1,0 +1,47 @@
+ood_dataset:
+  name: wood_ood
+  num_classes: 130
+
+  num_workers: '@{num_workers}'
+  num_gpus: '@{num_gpus}'
+  num_machines: '@{num_machines}'
+
+  dataset_class: ImglistDataset
+  batch_size: 64
+  shuffle: False
+
+  split_names: [val, nearood, farood]
+
+  val:
+    data_dir: ../OOD_wood/
+    imglist_pth: ./data/benchmark_imglist/wood/test_wood_ood.txt
+
+  nearood:
+    datasets: [wood_ood, cifar100]
+    wood_ood:
+      data_dir: ../OOD_wood/
+      imglist_pth: ./data/benchmark_imglist/wood/test_wood_ood.txt
+    cifar100:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/wood/test_cifar100.txt
+
+  farood:
+    datasets: [cifar10, tin, mnist, svhn, texture, places365]
+    cifar10:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/wood/test_cifar10.txt
+    tin:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/wood/test_tin.txt
+    mnist:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/wood/test_mnist.txt
+    svhn:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/wood/test_svhn.txt
+    texture:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/wood/test_texture.txt
+    places365:
+      data_dir: ./data/images_classic/
+      imglist_pth: ./data/benchmark_imglist/wood/test_places365.txt
